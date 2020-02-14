@@ -36,3 +36,209 @@
     transform: rotate(360deg);
   }
 }
+
+.strectSidebar {
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+.contentBorder {
+  border: solid;
+  border-width: 1px;
+}
+
+.sidebarBorder {
+  border-bottom: solid;
+  border-width: 1px;
+}
+
+.tablink {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  width: 100%;
+}
+
+.tablink:hover {
+  background-color: rgb(211, 208, 208);
+}
+
+.topmenu {
+  padding-top: 0.5%;
+  padding-bottom: 0.5%;
+}
+
+.sidebar {
+  height: 100%;
+  float: left;
+}
+
+.motasanpham {
+  float: left;
+  width: 70%;
+}
+
+.sanpham {
+  width: 100%;
+  height: 110px;
+}
+
+.anhsanpham {
+  float: left;
+}
+
+.menuRightContent {
+  border-left: solid;
+  border-width: 1px;
+}
+
+.listTable {
+  width: 10%;
+  float: left;
+}
+
+@font-face {
+        font-family: 'Averta-Regular';
+    src:   url('./fonts//Averta-Regular.ttf') format('opentype');
+}
+ body{ background: #fff;margin: 0; padding: 0;  color: #1c2e38; font-size: 13px;font-family: 'Averta-Regular';}
+ li{ list-style:none; color: #1c2e38;font-size: 13px;font-family: 'Averta-Regular';}
+ a, p{ color: #1c2e38; font-size: 13px;font-family: 'Averta-Regular'; text-decoration:none}
+ ul{ padding-lefT: 0px; margin-lefT: 0px}
+ #container{     width: 100%;
+    overflow: hidden;
+    margin: 0px;
+    padding: 0px;}
+.sidebar-left{ overflow: hidden; width: 23%; floaT: left; background: #fff; padding-bottom: 100px}
+.user-info{     width: 100%;
+    overflow: hidden;
+    text-align: center;
+    margin-top: 40px;}
+.user-info p.name-user{font-family: 'Averta-Regular'; font-weight: 700; color: #1c2e38;    font-size: 15px; }
+.user-info p.name-user span{background: url(./images/icon-name.png) no-repeat right;    padding-right: 25px;}
+.list-menu>ul>li{line-height: 36px;}
+.list-menu>ul>li.manage-user-acount>div>a{ background: url(./images/icon-user-hover.jpg) no-repeat left; padding-lefT: 25px}
+.list-menu>ul>li.manage-user-store>div>a{ background: url(./images/icon-qlch.png) no-repeat left; padding-lefT: 25px}
+.list-menu>ul>li.manage-aboutus-banner>div>a{ background: url(./images/icon-qlgt.png) no-repeat left; padding-lefT: 25px}
+.list-menu>ul>li.manage-notification>div>a{ background: url(./images/icon-thongbap.png) no-repeat left; padding-lefT: 25px}
+.list-menu>ul>li.manage-chat>div>a{ background: url(./images/icon-chat.png) no-repeat left; padding-lefT: 25px}
+.list-menu>ul>li.manage-decentralization>div>a{ background: url(./images/iconphanquyn-cn.png) no-repeat left; padding-lefT: 25px}
+.list-menu>ul>li{ background: url(./images/icon-chuaxo.png) no-repeat right  15px;background-position-x: 96%;  
+    }
+.list-menu>ul{     padding:0;}
+.list-menu>ul>li>div{ padding-lefT: 20px}
+.list-menu>ul>li.active>div, .list-menu>ul>li:hover>div{ background: #e8eaeb url(./images/icon-xo.png) no-repeat right  15px;  background-position-x: 96%;   border-lefT: 5px solid #e7402d;    padding-lefT: 15px;}
+.list-menu>ul>li.manage-user-acount.active>div>a, .list-menu>ul>li.manage-user-acount:hover>div>a{ background: url(./images/icon-qltk.png) no-repeat left; padding-lefT: 25px; color: #e7402d}
+.list-menu>ul>li.manage-user-store:hover>div>a, .list-menu>ul>li.manage-user-store.active>div>a{ background: url(./images/icon-store-hover.png) no-repeat left; padding-lefT: 25px;}
+.list-menu>ul>li.active>ul, .list-menu>ul>li:hover>ul{ display: block}
+.list-menu>ul>li>ul{    padding-lefT: 45px;    padding-right: 20px;    padding-top: 10px;}
+.list-menu>ul>li>ul>li{    margin-bottom: 5px; line-height: 18px}
+.list-menu>ul>li>ul>li:hover>a{ color: #e7402d}
+.submenu{ display: none; }
+/**********************/
+.container-right{     width: 75%; overflow: hidden; background: #edf2f6; 
+    floaT: left;
+    padding: 0 1%;padding-top: 70px;    padding-bottom: 100px;}
+.content-top{ width: 100%; overflow: hidden;}
+.title-left{ width: 50%; floaT: left; background: url(./images/icon-listuser.png) no-repeat left; padding-lefT: 45px; font-size: 16px; font-weight: bold; color: #1c2e38}
+.add-user-bt{    float: right;
+    width: 35%;
+    overflow: hidden;}
+.add-user-bt a{background: #1c2e38;
+    color: #fff;
+    padding: 12px 20px;
+    float: right;
+    border-radius: 5px;}
+.add-user-bt a:hover{background: #e52e29;}
+.add-user-bt a span{    background: url(./images/icon-themngd.png) no-repeat left 2px;
+    padding-lefT: 25px;
+    padding-top: 5px;
+    padding-bottom: 5px;}
+.content-center{overflow: hidden;    margin-bottom: 20px;
+    cleaR: both;
+    background: #fff;
+    border-radius: 5px;
+    margin-top: 20px;
+    padding: 20px;}
+.search-box{ width: 100%; overflow: hidden; }
+.search-box input[type="search"]{ width: 85%;
+    height: 36px;
+    border: 1px solid #e8eaeb;
+    border-radius: 5px;  background: url(./images/icon-search.png) no-repeat left;    padding-lefT: 42px;
+    background-position-x: 15px;font-family: 'Averta-Regular';     margin-right: 10px;}
+.search-box input[type="submit"]{    background: #1c2e38;
+    color: #fff;
+    border: none;
+    padding: 10px 38px;    border-radius: 5px;
+}
+.list-table{ overflow: hidden;
+    width: 100%;
+    margin-top: 17px;}
+table tr{
+    text-align: center;
+    line-height: 43px;}
+.row1-tab{    background: #1c2e38;color: #fff;
+    }
+.row2-tab{background: #edf2f6;}
+td img{ padding: 0 10px}
+.tablenav-pages{ width: 100%;    padding-bottom: 50px;
+    overflow: hidden;}
+.tablenav-pages ul{ float: right}
+.tablenav-pages li{ float: left;padding-lefT: 5px;}
+.tablenav-pages li a{     background: #fff;
+    padding: 5px 10px;
+    border-radius: 3px;}
+.tablenav-pages  .prev a,.tablenav-pages .next a{ background: #1c2e38; color: #fff} 
+.tablenav-pages .active a{ border: 1px solid #1c2e38}
+/**************css quản lý của hàng page*******************/
+.add-tkch a span{    background: url(./images/icon-addch.jpg) no-repeat left 6px;
+    padding-lefT: 25px;
+    padding-top: 5px;
+    padding-bottom: 5px;}
+.quanlych {
+    width: 50%;
+    floaT: left;
+    background: url(./images/icon-title-qlch.png) no-repeat left;
+    padding-lefT: 35px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #1c2e38;
+}
+.quanlych select{margin-lefT: 15px;
+    padding: 10px 30px;
+    border-radius: 5px;font-family: 'Averta-Regular'; }
+/**************css chi tiết của hàng page*******************/
+.content-chitiet {
+    overflow: hidden;
+    margin-bottom: 20px;
+    cleaR: both;
+    background: #fff;
+    border-radius: 5px;
+    margin-top: 20px;
+    padding: 20px;
+	width: 60%; float: left;
+}
+.linestore{     border-bottom: 1px solid #e6e6ec;
+    padding-bottom: 20px;
+    margin-bottom: 20px;}
+.product-name1{padding-top: 20px;}
+.product-name{ width: 80%; overflow: hidden; clear: both}
+.product-detail{    width: 65%;
+    float: left;}
+.product-img{ width: 35%; float:left;}
+.content-bottom{ clear: both;width: 64%;  floaT: left; overflow: hidden}
+.save-prd, .huy-prd{ float: right; margin-lefT: 15px;}
+.huy-prd a, .save-prd a{  
+    padding: 12px 27px;
+    line-height: 45px;
+    border-radius: 5px;    font-weight: bold;
+}
+.huy-prd a{  background: #ffffff;}
+.huy-prd a span{ background: url(./images/icon-huy.jpg) no-repeat left;     padding-lefT: 25px;
+    padding-top: 5px;
+    padding-bottom: 5px;}
+.save-prd a span{ background: url(./images/icon-luu.jpg) no-repeat left;     padding-lefT: 25px;
+    padding-top: 5px;
+    padding-bottom: 5px;}
+ .save-prd a{ background: #1c2e38; color: #fff}
