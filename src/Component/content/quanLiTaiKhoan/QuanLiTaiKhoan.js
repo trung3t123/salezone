@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-
-
+import { Link } from 'react-router-dom';
+import Moment from 'react-moment';
 
 class QuanLiTaiKhoan extends Component {
 
@@ -12,12 +12,13 @@ class QuanLiTaiKhoan extends Component {
         }
 
     }
+    
     componentDidMount() {
         const proxyurl = "https://cors-anywhere.herokuapp.com/";
         const url = "http://103.102.46.103:3000/users";
         fetch(proxyurl + url)
             .then(res => res.json())
-            .then((data) => {
+            .then((data) => {   
                 this.setState({
                     isloaded: true,
                     items: data,
@@ -28,7 +29,7 @@ class QuanLiTaiKhoan extends Component {
 
     render() {
         var { isloaded, items } = this.state;
-        if (!isloaded) {// sửa cái này
+        if (!isloaded) {
             return <div>đang load ding .. chờ tí là được</div>;
         } else {
             var { isloaded, items } = this.state;
@@ -39,7 +40,7 @@ class QuanLiTaiKhoan extends Component {
                     <div className="container-right">
                         <div className="content-top">
                             <div className="title-left">Quản lý thông tin tài khoản User</div>
-                            <div className="add-user-bt"><a href="#"><span>Thêm người dùng</span></a></div>
+                            <div className="add-user-bt"><Link to="/ThemTaiKhoan"><span>Thêm người dùng</span></Link></div>
                         </div>
                         <div className="content-center">
                             <div className="search-box">
@@ -59,9 +60,9 @@ class QuanLiTaiKhoan extends Component {
                                         {items.map(item => (
                                             <tr key={item._id}>
                                                 <td>{item.name}</td>
-                                                <td >{item.phone}</td>
+                                                <td>{item.phone}</td>
                                                 <td>{item.history + ","}</td>
-                                                <td>{item.create_date}</td>
+                                                <td><Moment>{item.create_date}</Moment></td>
                                             </tr>
                                         ))}
 

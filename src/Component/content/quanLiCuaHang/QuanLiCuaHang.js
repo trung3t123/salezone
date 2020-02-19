@@ -7,6 +7,7 @@ import {
     useParams
 } from "react-router-dom";
 import ChiTietCuaHang from './ChiTietCuaHang';
+import axios from 'axios';
 
 
 
@@ -21,7 +22,7 @@ class QuanLiCuaHang extends Component {
 
     componentDidMount() {
         const proxyurl = "https://cors-anywhere.herokuapp.com/";
-        const url = "http://103.102.46.103:3000/users";
+        const url = "http://103.102.46.103:3000/stores";
         fetch(proxyurl + url)
             .then(res => res.json())
             .then((data) => {
@@ -31,6 +32,19 @@ class QuanLiCuaHang extends Component {
                 })
             })
             .catch(console.log)
+    }
+
+    deleteCuaHang = (event) => {
+        console.log(event.target.id);
+        const proxyurl = "https://cors-anywhere.herokuapp.com/";
+        const url = "http://103.102.46.103:3000/store/" + event.target.id;
+        axios.delete(proxyurl + url).then(
+            respone => {
+                alert("Xóa Cửa hàng thành công")
+                window.location.reload();
+            }
+            
+        )
     }
 
     render() {
@@ -50,7 +64,7 @@ class QuanLiCuaHang extends Component {
                                 <option>Đang chờ</option>
                             </select>
                         </div>
-                        <div className="add-user-bt add-tkch"><a href="#"><span>Thêm cửa hàng</span></a></div>
+                        <div className="add-user-bt add-tkch"><Link to="/AddCuaHang"><span>Thêm cửa hàng</span></Link></div>
                     </div>
                     <div className="content-center">
                         <div className="search-box">
@@ -64,16 +78,18 @@ class QuanLiCuaHang extends Component {
                                     <td>Tên cửa hàng</td>
                                     <td>Địa chỉ</td>
                                     <td>SĐT</td>
+                                    <td>status</td>
                                     <td></td>
                                     <td></td>
                                 </tr>
                                     {items.map(item => (
                                         <tr key={item._id}>
-                                            <td>{item.name}</td>
-                                            <td >{item.phone}</td>
-                                            <td>{item.history}</td>
+                                            <td>{item.nameStore}</td>
+                                            <td >{item.addressStore}</td>
+                                            <td>{item.phoneStore}</td>
+                                            <td>{item.status}</td>
                                             <td><button><Link to={"/ChiTietCuaHang/" + item._id}>Info</Link></button></td>
-                                            <td><button>Delete</button></td>
+                                            <td><button id={item._id} onClick={this.deleteCuaHang}>Delete</button></td>
                                         </tr>
                                     ))}
                                 </tbody></table>

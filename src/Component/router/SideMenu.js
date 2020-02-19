@@ -17,8 +17,21 @@ function Home() {
     return <h2> Xin chào Admin</h2>;
 }
 
-class WebRouter extends Component {
+class SideMenu extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            className: "active"
+        }
+    }
+    
+    // changeHandler = (e) => {
+    //     this.setState({
+    //         [e.target.className]: "active"
+    //     })
+    // }
     render() {
+
         return (
             <div className="sidebar-left">
                 <div className="user-info">
@@ -40,7 +53,7 @@ class WebRouter extends Component {
                             <div className="topdiv"><Link to="/ThongBao">gửi thông báo</Link></div>
                         </li>
                         <li className="manage-chat">
-                            <div className="topdiv"><Link to="/TinNhan">Quản lí tin nhắn</Link></div>
+                            <div className="topdiv"><Link to="/QuanLiTinNhan">Quản lí tin nhắn</Link></div>
                         </li>
                         <li className="manage-decentralization">
                             <div className="topdiv"><Link to="/PhanQuyen">phân quyền/ thêm sub admin</Link></div>
@@ -52,4 +65,4 @@ class WebRouter extends Component {
     }
 }
 
-export default WebRouter;
+export default SideMenu;

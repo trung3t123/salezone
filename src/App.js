@@ -1,14 +1,16 @@
 import './App.css';
 import React, { Component } from 'react';
-import Topmenu from './Component/topmenu/Topmenu.js';
 import Content from './Component/content/Content.js';
-import WebRouter from './Component/router/WebRouter';
+import SideMenu from './Component/router/SideMenu';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link
 } from "react-router-dom";
+import ThemTaiKhoan from './Component/content/quanLiTaiKhoan/ThemTaiKhoan';
+import QuanLiAdmin from './Component/content/quanLiAdmin/QuanLiAdmin';
+import DangNhap from './Component/dangnhap/DangNhap';
 
 class App extends Component {
 
@@ -16,7 +18,7 @@ class App extends Component {
     return (
       <Router>
         <div className="test">
-          <WebRouter></WebRouter>
+          <SideMenu></SideMenu>
           <Content></Content>
         </div>
       </Router>

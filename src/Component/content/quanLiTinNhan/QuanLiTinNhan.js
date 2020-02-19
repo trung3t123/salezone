@@ -1,53 +1,154 @@
 import React, { Component } from 'react';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link,
+    useParams
+} from "react-router-dom";
+
 
 class QuanLiTinNhan extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            items: [],
+            isLoaded: false
+        }
+
+    }
+
+    componentWillMount() {
+        const proxyurl = "https://cors-anywhere.herokuapp.com/";
+        const url = "http://103.102.46.103:3000/users";
+        fetch(proxyurl + url).then(res => res.json())
+            .then((data) => {
+                this.setState({
+                    isloaded: true,
+                    items: data,
+                })
+            })
+            .catch(console.log)
+    }
+
     render() {
+        var { isLoaded, items } = this.state;
+
         return (
-            <div className="container">
-                <div className="bubbleWrapper">
-                    <div className="inlineContainer">
-                        <img className="inlineIcon" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" />
-                        <div className="otherBubble other">
-                            No ninjas!
-      </div>
-                    </div><span className="other">08:41</span>
-                </div>
-                <div className="bubbleWrapper">
-                    <div className="inlineContainer own">
-                        <img className="inlineIcon" src="https://www.pinclipart.com/picdir/middle/205-2059398_blinkk-en-mac-app-store-ninja-icon-transparent.png" />
-                        <div className="ownBubble own">
-                            The first rule of being a ninja is, 'Do no harm.'
-      </div>
-                    </div><span className="own">08:55</span>
-                </div>
-                <div className="bubbleWrapper">
-                    <div className="inlineContainer">
-                        <img className="inlineIcon" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" />
-                        <div className="otherBubble other">
-                            Knowing when to leave requires training.
-      </div>
+            <div>
+                <div className="container-right">
+                    <header><h1>Quản lí Tin nhắn</h1></header>
+                    <div>
+                        <h2>Search/Filter Dropdown</h2>
+                        <p>Click on the button to open the dropdown menu, and use the input field to search for a specific dropdown link.
+                    </p>
+                        <div className="dropdownLeft">
+                            <button onClick={dropSender} className="senderDropdown">Thêm người gửi</button>
+
+                            <div id="senderSearchDropdown" className="sender-content">
+                                <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()" />
+                                {items.map(item => (
+                                    <Link to="#" key={item._id}>{item.name}</Link>
+                                )
+                                )}
+
+                            </div>
+
+                        </div>
+                        <div className="dropdownRight">
+                            <button onClick={dropReciever} className="recieverDropdown">Thêm người nhận</button>
+                            <div id="recieverSearchDropdown" className="reciever-content">
+                                <input type="text" placeholder="Search.." id="rightInput" onkeyup="filterFunction()" />
+                                {items.map(item => (
+                                    <Link to="#" key={item._id}>{item.name}</Link>
+                                )
+                                )}
+
+                            </div>
+                        </div>
                     </div>
-                </div><span className="other">10:13</span>
-                <div className="bubbleWrapper">
-                    <div className="inlineContainer own">
-                        <img className="inlineIcon" src="https://www.pinclipart.com/picdir/middle/205-2059398_blinkk-en-mac-app-store-ninja-icon-transparent.png" />
-                        <div className="ownBubble own">
-                            Stunned but impressed.
-      </div>
-                    </div><span className="own">11:07</span>
-                </div>
-                <div className="bubbleWrapper">
-                    <div className="inlineContainer">
-                        <img className="inlineIcon" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" />
-                        <div className="otherBubble other">
-                            How about throwing stars?
-      </div>
-                    </div><span className="other">11:11</span>
+                    <Switch>
+                        <Route path="/QuanLiTinNhan/:id1.:id2" children={<HoiThoai />} />
+                    </Switch>
+                    <HoiThoai></HoiThoai>
                 </div>
             </div>
-
         );
+
+
     }
 }
 
 export default QuanLiTinNhan;
+
+function HoiThoai() {
+    let { id1, id2 } = useParams();
+    return (
+        <div>
+            <div className="per1">
+                tin nhan nguoi` 1 : {id1}
+            </div>
+            <div className="per2">
+                tin nhan nguoi` 2 : {id2}
+            </div >
+            <div className="per1">
+                tin nhan nguoi` 1
+               </div>
+            <div className="per2">
+                tin nhan nguoi` 2
+               </div >
+            <div className="per1">
+                tin nhan nguoi` 1
+               </div>
+            <div className="per2">
+                tin nhan nguoi` 2
+               </div >
+            <div className="per1">
+                tin nhan nguoi` 1
+               </div>
+            <div className="per2">
+                tin nhan nguoi` 2
+               </div >
+            <div className="per1">
+                tin nhan nguoi` 1
+               </div>
+            <div className="per1">
+                tin nhan nguoi` 1
+               </div>
+            <div className="per1">
+                tin nhan nguoi` 1
+               </div>
+            <div className="per1">
+                tin nhan nguoi` 1
+               </div>
+            <div className="per1">
+                tin nhan nguoi` 1
+               </div>
+            <div className="per2">
+                tin nhan nguoi` 2
+               </div >
+            <div className="per1">
+                tin nhan nguoi` 1
+               </div>
+            <div className="per2">
+                tin nhan nguoi` 2
+               </div >
+        </div>
+    )
+}
+
+
+function dropSender() {
+    document.getElementById("senderSearchDropdown").classList.toggle("show");
+}
+
+
+function dropReciever() {
+    document.getElementById("recieverSearchDropdown").classList.toggle("show");
+}
+
+
+
+
+
+
