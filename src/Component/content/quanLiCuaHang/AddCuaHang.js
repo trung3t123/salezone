@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Popup from "reactjs-popup";
 
 class AddCuaHang extends Component {
     constructor(props) {
@@ -29,6 +30,7 @@ class AddCuaHang extends Component {
         axios.post(proxyurl + url, this.state).then((response) => {
             console.log(response);
             alert("Thêm Cửa Hàng thành công")
+            window.location.reload();
         }).catch((error) => {
             console.log(error);
             alert("Thêm cửa hàng không thành công")

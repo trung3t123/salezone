@@ -7,6 +7,7 @@ import {
     useParams
 } from "react-router-dom";
 import axios from 'axios';
+import addImage from '../../../images/add-img.jpg';
 
 class AddQuangCao extends Component {
     constructor(props) {
@@ -22,7 +23,7 @@ class AddQuangCao extends Component {
         }
     }
 
-    
+
 
     onChangeHandler = (event) => {
         this.setState({
@@ -55,44 +56,63 @@ class AddQuangCao extends Component {
         axios.post(proxyurl + url, fd).then(response => {
             console.log(response);
             alert(' thêm quảng cáo thành công');
+            window.location.reload();
         }).catch(error => {
             console.log(error);
             alert('upload failed');
         });
         console.log(fd)
     }
- 
+
     render() {
         const { nameCompany, phoneCompany, addressCompany, position, page, action, } = this.state;
         return (
             <div className="container-right">
-                <header><h1>Thêm banner</h1></header>
-                <div className="row container">
-                    <div className="col-6">
-                        <div className="row"><span className="col-6">tên công ti: </span><span><input type="text" value={nameCompany} onChange={this.onChangeHandler} name="nameCompany" placeholder="Tên công ti" /></span></div>
-                        <div className="row"> <span className="col-6">Số điện thoại công ti: </span><span><input type="text" value={phoneCompany} onChange={this.onChangeHandler} name="phoneCompany" placeholder="Số điện thoại công ti" /></span></div>
-                        <div className="row"> <span className="col-6">Địa chỉ công ti: </span><span><input type="text" value={addressCompany} onChange={this.onChangeHandler} name="addressCompany" placeholder="Địa chỉ Công ti" /></span></div>
-                        <div className="row"> <span className="col-6">Vị trí: </span><span><input type="text" name="position" value={position} onChange={this.onChangeHandler} placeholder="vị trí" /></span></div>
-                        <div className="row"> <span className="col-6">Trang: </span><span><input type="text" name="page" value={page} onChange={this.onChangeHandler} placeholder="trang web" /></span></div>
-                        <div>Hành động khi nhấn</div>
-                        <select className="col-6" id="actionOnPage">
-                            <option value="doNothing">Không làm gì cả</option>
-                            <option value="openLink">Mở trang web</option>
-                        </select>
-                        <div>
-                            <input name="action" onChange={this.onChangeHandler} value={action} type="text" placeholder="http://" />
-                        </div>
+                <form id="form_ql" method="get">
+                    <div className="content-top">
+                        <div className="title-qcbanner manager-title">Thêm Banner</div>
                     </div>
+                    <div className="banner-add">
+                        <div className="action-click"><p>Hành động khi nhấn vào</p>
+                            <select name="action">
+                                <option value="default">Mở trang web</option>
+                                <option value="popup">Popup</option>
+                            </select>
+                            <div className="row"><input name="action" onChange={this.onChangeHandler} value={action} type="text" placeholder="http://" />
+                            </div>
+                        </div>
+                        <div className="add-img-banner">
+                            <p>Ảnh banner</p>
 
-                    <div className="col-6">
-                        <div>Ảnh Banner</div>
-                        <div>
-                            <input type="file" onChange={this.fileSelectedHandler}></input>
+                            <div className="image-upload">
+                                <label for="file-input">
+                                    <img src={addImage} alt="add img" />
+                                </label>
+                                <input type="file" id="file-input" onChange={this.fileSelectedHandler}></input>
+                            </div>
                         </div>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <div className="row"><span className="col-6">tên công ti: </span><span><input type="text" value={nameCompany} onChange={this.onChangeHandler} name="nameCompany" placeholder="Tên công ti" /></span></div>
+                        <div className="row"><span className="col-6">Số điện thoại công ti: </span><span><input type="text" value={phoneCompany} onChange={this.onChangeHandler} name="phoneCompany" placeholder="Số điện thoại công ti" /></span></div>
+                        <div className="row"><span className="col-6">Địa chỉ công ti: </span><span><input type="text" value={addressCompany} onChange={this.onChangeHandler} name="addressCompany" placeholder="Địa chỉ Công ti" /></span></div>
+                        <div className="row"><span className="col-6">Vị trí: </span><span><input type="text" name="position" value={position} onChange={this.onChangeHandler} placeholder="vị trí" /></span></div>
+                        <div className="row"><span className="col-6">Trang: </span><span><input type="text" name="page" value={page} onChange={this.onChangeHandler} placeholder="trang web" /></span></div>
                     </div>
-                </div>
-                <button onClick={this.fileUploadHandler}>Thêm Quảng cáo</button>
+                    <div className="addbanner-bottom">
+                        <div className="add-banner" onClick={this.fileUploadHandler}><button type="button" className="button addbt">Thêm mới</button></div>
+                        <div className="cancel-banner"><button type="button" className="button cancel">Hủy</button></div>
+                    </div>
+                </form>
             </div>
+
+
+
+
         );
     }
 }

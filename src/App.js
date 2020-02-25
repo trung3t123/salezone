@@ -12,7 +12,9 @@ import ThemTaiKhoan from './Component/content/quanLiTaiKhoan/ThemTaiKhoan';
 import QuanLiAdmin from './Component/content/quanLiAdmin/QuanLiAdmin';
 import DangNhap from './Component/dangnhap/DangNhap';
 
+
 class App extends Component {
+
 
   render() {
     return (
@@ -20,9 +22,10 @@ class App extends Component {
         <div className="test">
           <SideMenu></SideMenu>
           <Content></Content>
+          {/* <Qli></Qli> */}
         </div>
       </Router>
-      );
+    );
 
   }
 }

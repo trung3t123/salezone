@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
-
+import suaIcon from '../../../images/icon-sua.png';
+import xoaIcon from '../../../images/icon-xoa.png'
 class QuanLiTaiKhoan extends Component {
 
     constructor(props) {
@@ -9,22 +10,44 @@ class QuanLiTaiKhoan extends Component {
         this.state = {
             items: [],
             isloaded: false,
+            searchInput: '',
         }
 
     }
-    
+
     componentDidMount() {
         const proxyurl = "https://cors-anywhere.herokuapp.com/";
         const url = "http://103.102.46.103:3000/users";
         fetch(proxyurl + url)
             .then(res => res.json())
-            .then((data) => {   
+            .then((data) => {
                 this.setState({
                     isloaded: true,
                     items: data,
                 })
             })
             .catch(console.log)
+    }
+
+    searchUser = (event) => {
+        const proxyurl = "https://cors-anywhere.herokuapp.com/"
+        const url = 'http://103.102.46.103:3000/user/find_like/' + this.state.searchInput;
+        fetch(proxyurl + url).then(res => res.json()).then(data => (
+            this.setState({
+                isloaded: true,
+                items: data
+            })
+        )).then(error => {
+            console.log(error)
+        })
+
+    }
+
+    changeHandler = (event) => {
+        this.setState({
+            [event.target.name]: event.target.value
+        })
+        console.log(this.state.searchInput)
     }
 
     render() {
@@ -45,8 +68,8 @@ class QuanLiTaiKhoan extends Component {
                         <div className="content-center">
                             <div className="search-box">
                                 <form id="searchid" method="get">
-                                    <input type="search" id="search-input" name="s" defaultValue placeholder="Nhập tên, số điện thoại hoặc CMND" />
-                                    <input type="submit" id="search-submit" className="button" defaultValue="Tìm kiếm" />
+                                    <input type="search" id="search-input" onChange={this.changeHandler} name="searchInput" placeholder="Nhập tên, số điện thoại hoặc CMND" />
+                                    <input type="button" onClick={this.searchUser} id="search-submit" className="button" defaultValue="Tìm kiếm" />
                                 </form></div>
                             <div className="list-table">
                                 <table width="100%">
@@ -55,18 +78,23 @@ class QuanLiTaiKhoan extends Component {
                                         <td>SĐT</td>
                                         <td>Lịch sử tìm kiếm</td>
                                         <td>Ngày tạo tài khoản</td>
+                                        <td></td>
+                                        <td></td>
                                     </tr>
 
                                         {items.map(item => (
-                                            <tr key={item._id}>
+                                            <tr className="row2-tab" key={item._id}>
                                                 <td>{item.name}</td>
                                                 <td>{item.phone}</td>
                                                 <td>{item.history + ","}</td>
                                                 <td><Moment>{item.create_date}</Moment></td>
+                                                <td><img src={suaIcon}></img></td>
+                                                <td><img src={xoaIcon}></img></td>
                                             </tr>
                                         ))}
 
-                                    </tbody></table>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                         <div className="tablenav-pages">

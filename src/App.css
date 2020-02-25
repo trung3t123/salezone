@@ -1,106 +1,9 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.strectSidebar {
-  padding-top: 2%;
-  padding-bottom: 2%;
-}
-
-.contentBorder {
-  border: solid;
-  border-width: 1px;
-}
-
-.sidebarBorder {
-  border-bottom: solid;
-  border-width: 1px;
-}
-
-.tablink {
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 14px 16px;
-  width: 100%;
-}
-
-.tablink:hover {
-  background-color: rgb(211, 208, 208);
-}
-
-.topmenu {
-  padding-top: 0.5%;
-  padding-bottom: 0.5%;
-}
-
-.sidebar {
-  height: 100%;
-  float: left;
-}
-
-.motasanpham {
-  float: left;
-  width: 70%;
-}
-
-.sanpham {
-  width: 100%;
-  height: 110px;
-}
-
-.anhsanpham {
-  float: left;
-}
-
-.menuRightContent {
-  border-left: solid;
-  border-width: 1px;
-}
-
-.listTable {
-  width: 10%;
-  float: left;
-}
+@charset "utf-8";
+/* CSS Document */
 
 @font-face {
   font-family: 'Averta-Regular';
-  src: url('./fonts//Averta-Regular.ttf') format('opentype');
+  src: url('./fonts/Averta-Regular.ttf') format('opentype');
 }
 
 body {
@@ -124,6 +27,10 @@ a, p {
   font-size: 13px;
   font-family: 'Averta-Regular';
   text-decoration: none
+}
+
+button, option, select {
+  font-family: 'Averta-Regular';
 }
 
 ul {
@@ -228,6 +135,25 @@ ul {
 .list-menu>ul>li.manage-user-store:hover>div>a, .list-menu>ul>li.manage-user-store.active>div>a {
   background: url(./images/icon-store-hover.png) no-repeat left;
   padding-lefT: 25px;
+  color: #e7402d
+}
+
+.list-menu>ul>li.manage-aboutus-banner:hover>div>a, .list-menu>ul>li.manage-aboutus-banner.active>div>a {
+  background: url(./images/icon-qlgt-hover.png) no-repeat left;
+  padding-lefT: 25px;
+  color: #e7402d
+}
+
+.list-menu>ul>li.manage-notification:hover>div>a, .list-menu>ul>li.manage-notification.active>div>a {
+  background: url(./images/icon-thongbap-hover.png) no-repeat left;
+  padding-lefT: 25px;
+  color: #e7402d
+}
+
+.list-menu>ul>li.manage-chat:hover>div>a, .list-menu>ul>li.manage-chat.active>div>a {
+  background: url(./images/icon-chat-hover.png) no-repeat left;
+  padding-lefT: 25px;
+  color: #e7402d
 }
 
 .list-menu>ul>li.active>ul, .list-menu>ul>li:hover>ul {
@@ -278,6 +204,10 @@ ul {
   font-size: 16px;
   font-weight: bold;
   color: #1c2e38
+}
+
+.image-upload>input {
+  display: none;
 }
 
 .add-user-bt {
@@ -502,12 +432,324 @@ td img {
   color: #fff
 }
 
-.per1 {
-  width: 100%;
+/************** page quản lý quảng cáo và banner****************/
+
+.update-pageqlqc a, .add-banner-bt a, .save-pageqlqc a {
+  floaT: right;
+  background: #45b4fb;
+  padding: 9px 25px;
+  text-transform: uppercase;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 23px;
+  border-bottom: 2px solid #2697df;
+}
+
+.update-pageqlqc span {
+  background: url(./images/icon-capnhat.png) no-repeat left;
+  padding-left: 22px
+}
+
+.manager-title {
+  width: 50%;
+  floaT: left;
+  line-height: 32px;
+  padding-lefT: 45px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #1c2e38;
+}
+
+.title-banner {
+  background: url(./images/ql-quangcao.png) no-repeat left;
+}
+
+.title-qcbanner {
+  background: url(./images/icon-qlqc.png) no-repeat left;
+}
+
+.add-banner-bt a span {
+  background: url(./images/icon-addbaner.png) no-repeat left 7px;
+  padding-lefT: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.add-banner-bt a, .save-pageqlqc a {
+  text-transform: none
+}
+
+.row-tab {
+  line-height: 130px
+}
+
+.banner-add, .notification_form, .notification_detail {
+  overflow: hidden;
+  margin-bottom: 20px;
+  cleaR: both;
+  background: #fff;
+  border-radius: 5px;
+  margin-top: 20px;
+  padding: 20px;
+  width: 80%;
   float: left;
 }
 
-.per2 {
+.banner-add .action-click {
+  margin-right: 10%;
+  float: left;
+  width: 40%;
+}
+
+.add-img-banner {
+  width: 50%;
+  floaT: left;
+}
+
+.add-img-banner button {
+  background: #edf2f6;
+  width: 100%;
+  border: none;
+  height: 210px;
+}
+
+.action-click select, .search-noti input[type="text"] {
+  width: 100%;
+  height: 35px;
+  border: 1px solid #edf2f6;
+  padding-lefT: 10px;
+  font-family: 'Averta-Regular';
+  border-radius: 3px;
+}
+
+.add-banner, .cancel-banner {
+  float: right
+}
+
+.addbanner-bottom {
+  clear: both;
+  width: 74%;
+  floaT: left;
+  overflow: hidden;
+}
+
+.cancel-banner button {
+  background: #282828;
+  color: #fff;
+  border: none;
+  padding: 8px 50px;
+  border-radius: 20px;
+  font-size: 14px;
+  margin-right: 15px;
+}
+
+.add-banner button {
+  background: #45b4fb;
+  color: #fff;
+  border: none;
+  padding: 7px 33px;
+  border-radius: 20px;
+  font-size: 14px;
+  margin-right: 15px;
+  border-bottom: 2px solid #2697df;
+}
+
+/************** css quản lý thông báo***************/
+
+.title-notification {
+  background: url(./images/icon-quanlytb.png) no-repeat left;
+  padding-lefT: 31px;
+}
+
+.top-form {
+  width: 100%;
+  overflow: hidden;
+}
+
+.form-left, .form-right {
+  width: 48%;
+  floaT: left;
+}
+
+.form-right {
+  width: 48%;
+  float: left;
+  margin-left: 4%;
+}
+
+.search-noti {
+  margin-top: 15px
+}
+
+.search-noti input[type="text"] {
+  width: 77%;
+  float: left;
+  padding: 0px 10px;
+  height: 33px;
+  border-radius: 3px 0 0 3px;
+  background: #fff url(./images/search-thongbao.jpg) no-repeat left;
+  background-position-x: 6%;
+  padding-left: 34px;
+}
+
+.search-noti input[type="submit"] {
+  width: 23%;
+  color: #fff;
+  font-family: 'Averta-Regular';
+  float: left;
+  background: #45b4fb;
+  border: none;
+  padding: 9.5px 10px;
+  border-radius: 0 3px 3px 0;
+}
+
+.list-receiver {
+  border: 1px solid #edf2f6;
+  height: 65px;
+  border-radius: 3px;
+  padding: 10px;
+}
+
+textarea {
+  width: 97%;
+  height: 300px;
+  border-radius: 3px;
+  border: 1px solid #edf2f6;
+  padding: 10px
+}
+
+.notification_form input[type="button"] {
+  margin-top: 20px;
+  text-align: right;
+  float: right;
+  background: #45b4fb;
+  color: #fff;
+  border: none;
+  padding: 7px 50px;
+  border-radius: 20px;
+  font-size: 14px;
+  margin-right: 15px;
+  border-bottom: 2px solid #2697df;
+}
+
+.quanly-notification {
+  background: url(./images/quanlytinnhan.png) no-repeat left;
+  padding-lefT: 45px;
+}
+
+.notification_form_01 {
+  overflow: hidden;
+  margin-bottom: 20px;
+  cleaR: both;
+  margin-top: 20px;
+  width: 70%;
+  float: left;
+}
+
+.left-notification, .right-notification {
+  width: 41%;
+  floaT: left;
+  background: #fff;
+  border-radius: 3px;
+  -webkit-box-shadow: 2px 3px 6px -2px rgba(124, 124, 128, 1);
+  -moz-box-shadow: 2px 3px 6px -2px rgba(124, 124, 128, 1);
+  box-shadow: 2px 3px 6px -2px rgba(124, 124, 128, 1);
+  margin-bottom: 15px;
+}
+
+.right-notification {
+  margin-lefT: 6%;
+}
+
+.search-notitop {
+  padding: 10px 12px;
+  background: #c9c9ce;
+  border-radius: 3px 3px 0 0;
+}
+
+.search-notitop input {
+  width: 84%;
+  height: 30px;
+  border-radius: 3px;
+  border: none;
+  padding-lefT: 42px;
+  background: #fff url(./images/icon-search-tinnhan.png) no-repeat left;
+  background-position-x: 7%;
+  font-family: 'Averta-Regular';
+}
+
+.list-user-noti li {
+  margin: 0 20px;
+  border-bottom: 1px solid #c9c9ce;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.list-user-noti li:hover a {
+  color: #e7402d
+}
+
+.notification_detail {
+  width: 50%
+}
+
+.date-noti {
+  font-weight: bold;
+  color: #282828;
+  font-size: 15px;
+  text-align: center;
+  clear: both;
+  width: 100%
+}
+
+.date-noti span {
+  font-weight: 500;
+  color: #8e8e93
+}
+
+.chat-right {
+  width: 70%;
+  float: right;
+  clear: both;
+}
+
+.chat-right div {
+  background: url(./images/icon-chat.jpg) no-repeat right bottom 11px;
+  padding: 0 22px 0 0;
+  color: #fff;
+  background-position-x: 97%;
+  overflow: hidden;
+  ;
+}
+
+.chat-right div p {
+  background: #3aacfc;
+  border-radius: 20px;
+  padding: 15px;
+  color: #fff;
+  width: fit-content;
+  float: right;
+}
+
+.chat-left {
+  width: 70%;
+  float: left;
+  clear: both;
+}
+
+.chat-left div {
+  background: url(./images/icon-chat-left.jpg) no-repeat left bottom 11px;
+  padding: 0 0px 0 12px;
+  color: #000;
+  overflow: hidden;
+}
+
+.chat-left div p {
+  background: #e5e5ea;
+  border-radius: 20px;
+  padding: 15px;
+  color: #000;
+  width: fit-content;
   float: right;
 }
 
@@ -557,7 +799,6 @@ td img {
   border-bottom: 1px solid #ddd;
 }
 
-
 #rightInput:focus {
   outline: 3px solid #ddd;
 }
@@ -576,11 +817,11 @@ td img {
 .sender-content {
   display: none;
   position: absolute;
+  height: fit-content;
   background-color: #f6f6f6;
   min-width: 230px;
   overflow: auto;
   border: 1px solid #ddd;
-  z-index: 1;
 }
 
 .reciever-content {
@@ -615,4 +856,27 @@ td img {
 
 .show {
   display: block;
+}
+
+.sender-content p:hover {
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+.sender-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.reciever-content a:hover {
+  background-color: #f1f1f1
+}
+
+.popup-addProduct{
+  width: fit-content;
+}
+
+.popup-addProduct-button{
+  width: fit-content;
+  float: right;
+  padding-right: 10%;
 }

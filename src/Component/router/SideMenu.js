@@ -8,10 +8,7 @@ import {
 import QuanLiTaiKhoan from '../content/quanLiTaiKhoan/QuanLiTaiKhoan';
 import QuanLiCuaHang from '../content/quanLiCuaHang/QuanLiCuaHang';
 import ChiTietCuaHang from '../content/quanLiCuaHang/ChiTietCuaHang';
-// import QuanLiCuaHang from '../content/quanLiCuaHang/QuanLiCuaHang';
-// import QuanLiCuaHang from '../content/quanLiCuaHang/QuanLiCuaHang';
-// import QuanLiCuaHang from '../content/quanLiCuaHang/QuanLiCuaHang';
-// import QuanLiCuaHang from '../content/quanLiCuaHang/QuanLiCuaHang';
+
 
 function Home() {
     return <h2> Xin chào Admin</h2>;
@@ -24,12 +21,12 @@ class SideMenu extends Component {
             className: "active"
         }
     }
-    
-    // changeHandler = (e) => {
-    //     this.setState({
-    //         [e.target.className]: "active"
-    //     })
-    // }
+
+    clickHandler = (e) => {
+
+    }
+
+
     render() {
 
         return (
@@ -40,22 +37,22 @@ class SideMenu extends Component {
                 </div>
                 <div className="list-menu">
                     <ul>
-                        <li className="manage-user-acount">
+                        <li onClick={this.clickHandler} className="manage-user-acount">
                             <div className="topdiv"><Link to="/TaiKhoan">Quản lí tài khoản</Link></div>
                         </li>
-                        <li className="manage-user-store active">
+                        <li onClick={this.clickHandler} className="manage-user-store">
                             <div className="topdiv"><Link to="/CuaHang"> quản lí cửa hàng</Link></div>
                         </li>
-                        <li className="manage-aboutus-banner">
+                        <li onClick={this.clickHandler} className="manage-aboutus-banner">
                             <div className="topdiv"><Link to="/QuangCao">quản lí quảng cáo</Link></div>
                         </li>
-                        <li className="manage-notification">
+                        <li onClick={this.clickHandler} className="manage-notification">
                             <div className="topdiv"><Link to="/ThongBao">gửi thông báo</Link></div>
                         </li>
-                        <li className="manage-chat">
+                        <li onClick={this.clickHandler} className="manage-chat">
                             <div className="topdiv"><Link to="/QuanLiTinNhan">Quản lí tin nhắn</Link></div>
                         </li>
-                        <li className="manage-decentralization">
+                        <li onClick={this.clickHandler} className="manage-decentralization">
                             <div className="topdiv"><Link to="/PhanQuyen">phân quyền/ thêm sub admin</Link></div>
                         </li>
                     </ul>

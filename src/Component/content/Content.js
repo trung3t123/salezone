@@ -17,6 +17,7 @@ import AddQuangCao from './quanLiQuangCao/AddQuangCao';
 import ChiTietQuangCao from './quanLiQuangCao/ChiTietQuangCao';
 import LoadSomething from './quanLiQuangCao/ChiTietQuangCao';
 import AddCuaHang from './quanLiCuaHang/AddCuaHang';
+import AddAdmin from './quanLiAdmin/AddAdmin';
 
 class Content extends Component {
 
@@ -52,12 +53,14 @@ class Content extends Component {
                     <ThemTaiKhoan />
                 </Route>
                 <Route path="/AddQuangCao" >
-                    <AddQuangCao  />
+                    <AddQuangCao />
                 </Route>
                 <Route path="/AddCuaHang" >
-                    <AddCuaHang  />
+                    <AddCuaHang />
                 </Route>
-            </div>
+                <Route path="/AddAdmin" >
+                    <AddAdmin />
+                </Route></div>
         );
     }
 }

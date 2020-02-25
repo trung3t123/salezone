@@ -7,6 +7,16 @@ import {
     useParams
 } from "react-router-dom";
 
+function dropSender() {
+    document.getElementById("senderSearchDropdown").classList.toggle("show");
+}
+
+
+function dropReciever() {
+    document.getElementById("recieverSearchDropdown").classList.toggle("show");
+}
+
+
 
 class QuanLiTinNhan extends Component {
     constructor(props) {
@@ -17,6 +27,7 @@ class QuanLiTinNhan extends Component {
         }
 
     }
+
 
     componentWillMount() {
         const proxyurl = "https://cors-anywhere.herokuapp.com/";
@@ -46,7 +57,7 @@ class QuanLiTinNhan extends Component {
                             <button onClick={dropSender} className="senderDropdown">Thêm người gửi</button>
 
                             <div id="senderSearchDropdown" className="sender-content">
-                                <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()" />
+                                <input type="text" placeholder="Search.." id="myInput" onKeyUp="filterFunction()" />
                                 {items.map(item => (
                                     <Link to="#" key={item._id}>{item.name}</Link>
                                 )
@@ -58,7 +69,7 @@ class QuanLiTinNhan extends Component {
                         <div className="dropdownRight">
                             <button onClick={dropReciever} className="recieverDropdown">Thêm người nhận</button>
                             <div id="recieverSearchDropdown" className="reciever-content">
-                                <input type="text" placeholder="Search.." id="rightInput" onkeyup="filterFunction()" />
+                                <input type="text" placeholder="Search.." id="rightInput" onKeyUp="filterFunction()" />
                                 {items.map(item => (
                                     <Link to="#" key={item._id}>{item.name}</Link>
                                 )
@@ -137,15 +148,6 @@ function HoiThoai() {
     )
 }
 
-
-function dropSender() {
-    document.getElementById("senderSearchDropdown").classList.toggle("show");
-}
-
-
-function dropReciever() {
-    document.getElementById("recieverSearchDropdown").classList.toggle("show");
-}
 
 
 

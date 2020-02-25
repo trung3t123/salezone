@@ -20,7 +20,7 @@ class ThemTaiKhoan extends Component {
 
     submitHandler = (e) => {
         const proxyurl = "https://cors-anywhere.herokuapp.com/";
-        const url = "http://103.102.46.103:3000/users";
+        const url = "http://103.102.46.103:3000/user";
         e.preventDefault();
         console.log(this.state)
         axios.post(proxyurl + url, this.state).then(response => {
