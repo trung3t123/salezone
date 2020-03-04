@@ -16,9 +16,12 @@ class QuanLiAdmin extends Component {
         this.state = {
             isLoaded: false,
             items: [],
-            searchInput: ''
+            searchInput: '',
+
         }
     }
+
+    changedAdmin = [];
 
     componentWillMount() {
         const proxyurl = "https://cors-anywhere.herokuapp.com/";
@@ -72,8 +75,6 @@ class QuanLiAdmin extends Component {
         })
     }
 
-
-
     render() {
         const { items, isLoaded } = this.state;
         if (!isLoaded) {
@@ -104,28 +105,28 @@ class QuanLiAdmin extends Component {
                                         <th>Tin nhắn</th>
                                         <th>Phân quyền</th>
                                         <th></th>
+                                        <th></th>
                                     </tr>
 
                                         {items.map(item => (
                                             <tr key={item._id}>
                                                 <td>{item.name}</td>
                                                 <td>{item.phone}</td>
-                                                <td><input type="checkbox" defaultChecked={this.loadCheckedBoxHandler(item.userAccount)} ></input></td>
-                                                <td><input type="checkbox" defaultChecked={this.loadCheckedBoxHandler(item.store)}></input></td>
-                                                <td><input type="checkbox" defaultChecked={this.loadCheckedBoxHandler(item.banner)}></input></td>
-                                                <td><input type="checkbox" defaultChecked={this.loadCheckedBoxHandler(item.notification)}></input></td>
-                                                <td><input type="checkbox" defaultChecked={this.loadCheckedBoxHandler(item.message)}></input></td>
-                                                <td><input type="checkbox" defaultChecked={this.loadCheckedBoxHandler(item.roles)}></input></td>
-                                                <td><input type="image" src={xoaIcon} id={item._id} onClick={this.removeAdmin}></input></td>
+                                                <td><input type="checkbox" clickable="false" defaultChecked={this.loadCheckedBoxHandler(item.userAccount)} ></input></td>
+                                                <td><input type="checkbox" clickable="false" defaultChecked={this.loadCheckedBoxHandler(item.store)}></input></td>
+                                                <td><input type="checkbox" clickable="false" defaultChecked={this.loadCheckedBoxHandler(item.banner)}></input></td>
+                                                <td><input type="checkbox" clickable="false" defaultChecked={this.loadCheckedBoxHandler(item.notification)}></input></td>
+                                                <td><input type="checkbox" clickable="false" defaultChecked={this.loadCheckedBoxHandler(item.message)}></input></td>
+                                                <td><input type="checkbox" clickable="false" defaultChecked={this.loadCheckedBoxHandler(item.roles)}></input></td>
+                                                <td><Link to={"/ChiTietAdmin/" + item._id}><img src={suaIcon}></img></Link></td>
+                                                <td><img  src={xoaIcon} id={item._id} onClick={this.removeAdmin}></img></td>
                                             </tr>
                                         ))}
                                     </tbody>
                                 </table>
                             </div>
                         </div>
-                        <div className="tablenav-pages update-pageqlqc">
-                            <a href="#"><span>Cập nhật</span></a>
-                        </div>
+                        
                     </div>
                 </div>
             );

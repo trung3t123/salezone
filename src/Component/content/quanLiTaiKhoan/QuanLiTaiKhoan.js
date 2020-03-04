@@ -11,6 +11,8 @@ class QuanLiTaiKhoan extends Component {
             items: [],
             isloaded: false,
             searchInput: '',
+            // loggedInStatus: this.props.user.loggedInStatus,
+            // user: this.props.user.user
         }
 
     }
@@ -78,6 +80,7 @@ class QuanLiTaiKhoan extends Component {
                                         <td>SĐT</td>
                                         <td>Lịch sử tìm kiếm</td>
                                         <td>Ngày tạo tài khoản</td>
+                                        <td>Ngày hết hạn</td>
                                         <td></td>
                                         <td></td>
                                     </tr>
@@ -88,7 +91,8 @@ class QuanLiTaiKhoan extends Component {
                                                 <td>{item.phone}</td>
                                                 <td>{item.history + ","}</td>
                                                 <td><Moment>{item.create_date}</Moment></td>
-                                                <td><img src={suaIcon}></img></td>
+                                                <td><Moment>{item.expiredDate}</Moment></td>
+                                                <td><Link to={"/ChiTietTaiKhoan/" + item._id}><img src={suaIcon}></img></Link></td>
                                                 <td><img src={xoaIcon}></img></td>
                                             </tr>
                                         ))}

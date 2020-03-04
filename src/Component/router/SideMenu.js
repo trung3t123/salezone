@@ -10,17 +10,13 @@ import QuanLiCuaHang from '../content/quanLiCuaHang/QuanLiCuaHang';
 import ChiTietCuaHang from '../content/quanLiCuaHang/ChiTietCuaHang';
 
 
-function Home() {
-    return <h2> Xin chào Admin</h2>;
-}
-
 class SideMenu extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            className: "active"
-        }
+        this.state = this.props.user;
     }
+
+
 
     clickHandler = (e) => {
 
@@ -37,22 +33,22 @@ class SideMenu extends Component {
                 </div>
                 <div className="list-menu">
                     <ul>
-                        <li onClick={this.clickHandler} className="manage-user-acount">
+                        <li onClick={this.clickHandler} name="userAccount" className={`manage-user-acount ${this.state.userAccount[0] === 1 ? '' : 'hidden'}`}>
                             <div className="topdiv"><Link to="/TaiKhoan">Quản lí tài khoản</Link></div>
                         </li>
-                        <li onClick={this.clickHandler} className="manage-user-store">
+                        <li onClick={this.clickHandler} name="store" className={`manage-user-store  ${this.state.store[0] === 1 ? '' : 'hidden'}`}>
                             <div className="topdiv"><Link to="/CuaHang"> quản lí cửa hàng</Link></div>
                         </li>
-                        <li onClick={this.clickHandler} className="manage-aboutus-banner">
+                        <li onClick={this.clickHandler} name="banner" className={`manage-aboutus-banner  ${this.state.banner[0] === 1  ? '' : 'hidden'}`}>
                             <div className="topdiv"><Link to="/QuangCao">quản lí quảng cáo</Link></div>
                         </li>
-                        <li onClick={this.clickHandler} className="manage-notification">
+                        <li onClick={this.clickHandler} name="notification" className={`manage-notification  ${this.state.notification[0] === 1  ? '' : 'hidden'}`}>
                             <div className="topdiv"><Link to="/ThongBao">gửi thông báo</Link></div>
                         </li>
-                        <li onClick={this.clickHandler} className="manage-chat">
+                        <li onClick={this.clickHandler} name="message" className={`manage-chat  ${this.state.message[0] === 1  ? '' : 'hidden'}`}>
                             <div className="topdiv"><Link to="/QuanLiTinNhan">Quản lí tin nhắn</Link></div>
                         </li>
-                        <li onClick={this.clickHandler} className="manage-decentralization">
+                        <li onClick={this.clickHandler} name="roles" className={`manage-decentralization ${this.state.roles[0] === 1  ? '' : 'hidden'}`}>
                             <div className="topdiv"><Link to="/PhanQuyen">phân quyền/ thêm sub admin</Link></div>
                         </li>
                     </ul>
